@@ -1,0 +1,95 @@
+package com.cruddemo.SpringbootCrudWithoutDatabase;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringbootCrudWithoutDatabaseApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringbootCrudWithoutDatabaseApplication.class, args);
+		System.out.println("Springboot Is Running.....");
+	}
+
+}
+package com.cruddemo.SpringbootCrudWithoutDatabase;
+
+
+public class Student {
+	
+	int id;
+	String name;
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Student(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + "]";
+	}
+	
+
+}
+
+
+package com.cruddemo.SpringbootCrudWithoutDatabase;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class StudentController {
+
+	@RequestMapping("Namemy")
+	public String myname() {
+		return "ps";
+		}
+	
+
+	@GetMapping("RequestApiid/{id}")
+	public int numberApi(@PathVariable int id) {
+		return id;
+	}
+	
+	@GetMapping("RequestApiname/{name}")
+	public String nameApi(@PathVariable String name) {
+		return name;
+	}
+	
+	
+	
+		@GetMapping("Requestbody")
+		public int numberbody(@RequestBody int id) {
+			return id;
+		}
+		
+
+		
+		@GetMapping("Requestbodyname")
+		public String namebody(@RequestBody String name) {
+			return name;
+		}
+	
+	
+	
+}
